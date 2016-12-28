@@ -78,15 +78,13 @@ mejs.version = '3.0';
 		 * @return {Object}
 		 */
 		createEvent: function (eventName, target) {
-			var event;
+			var event = {};
+			event.type = eventName;
+			event.target = target;
 
 			if (doc.createEvent) {
 				event = doc.createEvent('Event');
 				event.initEvent(eventName, true, false);
-				event.target = target;
-			} else {
-				event = {};
-				event.type = eventName;
 				event.target = target;
 			}
 
@@ -8557,7 +8555,7 @@ if (jQuery !== undefined) {
 
 					// horizontal version
 					$('<div class="' +  t.options.classPrefix + 'button ' +
-					                    t.options.classPrefix + 'volume-button' +
+					                    t.options.classPrefix + 'volume-button ' +
 					                    t.options.classPrefix + 'mute">' +
 						'<button type="button" aria-controls="' + t.id + '" ' +
 							'title="' + t.options.muteText + '" ' +
