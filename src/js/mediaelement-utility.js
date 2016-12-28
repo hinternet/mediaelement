@@ -62,15 +62,13 @@
 		 * @return {Object}
 		 */
 		createEvent: function (eventName, target) {
-			var event;
+			var event = {};
+			event.type = eventName;
+			event.target = target;
 
 			if (doc.createEvent) {
 				event = doc.createEvent('Event');
 				event.initEvent(eventName, true, false);
-				event.target = target;
-			} else {
-				event = {};
-				event.type = eventName;
 				event.target = target;
 			}
 
