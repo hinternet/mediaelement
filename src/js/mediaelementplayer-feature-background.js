@@ -47,7 +47,7 @@
 
             media.addEventListener('play', function () {
                 var poster = player.container.find('.' + player.options.classPrefix + 'poster');
-                player.poster.show();
+                poster.show();
             }, false);
         },
 
